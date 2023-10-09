@@ -1,0 +1,19 @@
+The Line Directions algorithm calculates least-cost routes for multiple waypoints along one or multiple LineString(s).
+Each LineString can have up to 50 waypoints.
+
+You need to have a <b>valid API key</b> for at least one provider (Web ► ORS Tools ► Configuration) or sign up at <a href="https://openrouteservice.org/sign-up/">https://openrouteservice.org/sign-up/</a>.
+Current <a href="https://openrouteservice.org/restrictions/">restriction limits</a> for the openrouteservice API apply.
+
+<i>Input layer</i>: LineString or MultiLineString layer.
+
+<i>ID Field</i>: values will transfer to the output layer and can be used to join layers or group features afterwards.
+
+<i>Travel Mode</i>: determines the profile used.
+
+<i>Travel preference</i>: dictates the cost. For longer routes don't use Shortest Path.
+
+You can optionally perform a <a href="https://en.wikipedia.org/wiki/Travelling_salesman_problem">Traveling Salesman</a> on the waypoints of each MultiPoint feature.
+
+<i>Advanced Parameters</i>: see <a href="https://giscience.github.io/openrouteservice/documentation/routing-options/Routing-Options.html">the documentation</a> for descriptions.
+
+<i>Output layer</i>: a LineStringZ layer with multiple route attributes and <b>z dimension</b> set.
