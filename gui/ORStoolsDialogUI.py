@@ -456,7 +456,7 @@ class Ui_ORStoolsDialogBase(object):
 
     def retranslateUi(self, ORStoolsDialogBase):
         _translate = QtCore.QCoreApplication.translate
-        ORStoolsDialogBase.setWindowTitle(_translate("ORStoolsDialogBase", "ORS Tools"))
+        ORStoolsDialogBase.setWindowTitle(_translate("ORStoolsDialogBase", "ORS Tools Modified Version"))
         self.resources_group.setTitle(_translate("ORStoolsDialogBase", "Resources"))
         self.label_3.setText(_translate("ORStoolsDialogBase", "<html><head/><body><p><a href=\"https://openrouteservice.org/dev/#/signup\"><span style=\"font-weight: bold; text-decoration: underline; color:#a8b1f5;\">Sign Up</span></a></p></body></html>"))
         self.label_2.setText(_translate("ORStoolsDialogBase", "<html><head/><body><p><a href=\"https://openrouteservice.org/dev/#/home\"><span style=\"font-weight: bold; text-decoration: underline; color:#a8b1f5;\">Dashboard</span></a></p></body></html>"))

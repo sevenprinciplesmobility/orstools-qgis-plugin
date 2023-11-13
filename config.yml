@@ -3,10 +3,14 @@ providers:
     ORS_QUOTA: X-Ratelimit-Limit
     ORS_REMAINING: X-Ratelimit-Remaining
   base_url: https://api.openrouteservice.org
-  key: ''
+  key: 5b3ce3597851110001cf6248acc666520701404f833a92f12c75cc7b
   name: openrouteservice
   timeout: 60
 - base_url: http://localhost:8080/ors
   key: ''
   name: openrouteservice local
+  timeout: 60
+- base_url: http://3.122.114.143:8080/ors
+  key: ''
+  name: openrouteservice AWS
   timeout: 60
