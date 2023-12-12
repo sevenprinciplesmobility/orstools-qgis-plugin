@@ -67,6 +67,7 @@ class ORSBaseProcessingAlgorithm(QgsProcessingAlgorithm):
         self.IN_AVOID_COUNTRIES = "INPUT_AVOID_COUNTRIES"
         self.IN_AVOID_POLYGONS = "INPUT_AVOID_POLYGONS"
         self.IN_GREEN_WEIGHTING = "INPUT_GREEN_WEIGHTING"
+        self.IN_QUIET_WEIGHTING = "INPUT_QUIET_WEIGHTING"
         self.OUT = 'OUTPUT'
         self.PARAMETERS = None
 
@@ -181,6 +182,15 @@ class ORSBaseProcessingAlgorithm(QgsProcessingAlgorithm):
                 optional=True,
                 minValue=0,
                 maxValue=1
+            ),
+            QgsProcessingParameterNumber(
+                self.IN_QUIET_WEIGHTING,
+                self.tr("Quiet Weighting", 'ORSBaseProcessingAlgorithm'),
+                type=QgsProcessingParameterNumber.Double,
+                defaultValue=None,
+                optional=True,
+                minValue=0,
+                maxValue=1
             )
         ]
 
@@ -215,12 +225,19 @@ class ORSBaseProcessingAlgorithm(QgsProcessingAlgorithm):
             options['avoid_polygons'] = _get_avoid_polygons(polygons_layer)
 
         green_weighting_raw = parameters[self.IN_GREEN_WEIGHTING]
-        if green_weighting_raw:
+        quiet_weighting_raw = parameters[self.IN_QUIET_WEIGHTING]
+
+        if green_weighting_raw or quiet_weighting_raw:
             options['profile_params'] = {
                 'weightings': {
-                    "green": green_weighting_raw,
                 }
             }
+            
+        if green_weighting_raw:
+            options['profile_params']['weightings']['green'] = green_weighting_raw
+            
+        if quiet_weighting_raw:
+            options['profile_params']['weightings']['quiet'] = quiet_weighting_raw
 
         return options
 

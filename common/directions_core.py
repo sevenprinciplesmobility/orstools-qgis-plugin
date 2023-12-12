@@ -143,8 +143,9 @@ def get_output_feature_directions(response, profile, preference, options=None, f
     response_mini = response['features'][0]
     feat = QgsFeature()
     coordinates = response_mini['geometry']['coordinates']
-    distance = response_mini['properties']['summary']['distance']
-    duration = response_mini['properties']['summary']['duration']
+    summary = response_mini['properties']['summary']
+    distance = summary['distance'] if summary else 0
+    duration = summary['duration'] if summary else 0
     qgis_coords = [QgsPoint(x, y, z) for x, y, z in coordinates]
     feat.setGeometry(QgsGeometry.fromPolyline(qgis_coords))
     feat.setAttributes([f"{distance / 1000:.3f}",

@@ -10,7 +10,7 @@ providers:
   key: ''
   name: openrouteservice local
   timeout: 60
-- base_url: http://3.122.114.143:8080/ors
+- base_url: http://3.79.16.94:8080/ors
   key: ''
   name: openrouteservice AWS
   timeout: 60
